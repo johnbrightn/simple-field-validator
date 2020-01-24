@@ -1,0 +1,22 @@
+{
+    "name": "johnbrightn/simple-field-validator",
+    "description": "A simple yet powerful field backend input field validator for php",
+    "homepage": "https://github.com/johnbrightn/simple-field-validator",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "John Bright N",
+            "email": "jbntechnology@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Jbn\\Validate\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
