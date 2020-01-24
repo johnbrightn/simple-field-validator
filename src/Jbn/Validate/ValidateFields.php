@@ -1,6 +1,6 @@
 <?php
 
-namespace Jbn\Validtate;
+namespace Jbn\Validate;
 
  class ValidateFields {
 
