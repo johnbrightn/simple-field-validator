@@ -67,7 +67,7 @@ If validation succeeds, returns all the fields together with their values
 
 ```
 
-You can specify your custom messages when field length is longer than the specified one or is empty in the third parameter
+You can specify your custom messages when the value is empty or field length is more than the specified as a third parameter
 ```php
     $userInputs = $request->getParsedBody();
     
