@@ -39,15 +39,16 @@ namespace Jbn\Validate;
                         
                         //check the field length
                         if(strlen($values) > $fieldLength){
+                            if($customMessage != null) //if custom message is not null, return custom message instead
+                             return ValidateFields::customMessage($customMessage, $fieldsKey, $defaultFieldsKeys);
 
-                            if($customMessage != null){
-                                $index = array_search($fieldsKey, $defaultFieldsKeys); //get the index of the field
-                                return ["error" => true, "message" => $customMessage[$index]];
-                            }
                             return ["error" => true, "message" => "" . str_replace('_', " ", $fieldsKey) . " should be ".$fieldLength." characters or less"];
                         }
                         
                         if (empty(trim($values))) {//if the field submitted by the user is empty, prompt the user
+                            if($customMessage != null) //if custom message is not null, return custom message instead
+                             return ValidateFields::customMessage($customMessage, $fieldsKey, $defaultFieldsKeys);
+
                             return ["error" => true, "message" => "" . str_replace('_', " ", $fieldsKey) . " should not be empty"];
                         }else{
                             if($fieldsKey == "email"){ //validate email address
@@ -66,6 +67,10 @@ namespace Jbn\Validate;
             return ["error" => true, "message" => "No field is set"];
         }
     }
-}
 
-?>
+    private static function customMessage($customMessage, $fieldsKey, $defaultFieldsKeys){
+
+            $index = array_search($fieldsKey, $defaultFieldsKeys); //get the index of the field
+            return ["error" => true, "message" => $customMessage[$index]];
+    }
+}
