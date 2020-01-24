@@ -29,7 +29,7 @@ $app->post('/register', function (Request $request, Response $response) {
         $middle_name = $request->getParsedBody()['middle_name'];
         
     //specified required fields, key=>maxLength. value is the maximum required length of every field/key
-    $requiredFields = ["first_name"=>25, "last_name"=>25, email=>60, "username"=>15, "password"=>20];
+    $requiredFields = ["first_name"=>25, "last_name"=>25, "email"=>60, "username"=>15, "password"=>20];
     
     $value = ValidateFields::validate($requiredFields, $userInputs);
    if ($value["error"]) { //if validation fails, return response
