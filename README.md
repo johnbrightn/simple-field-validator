@@ -2,7 +2,7 @@
 
 #### Installing ? using composer
 ```composer
-composer require johnbrightn/simple-field-validator:dev-master
+composer require johnbrightn/simple-field-validator
 ```
 If you get an error of no class found, run the following command to optimize autoload
 ```composer
