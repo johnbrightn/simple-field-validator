@@ -24,6 +24,7 @@ $app->post('/register', function (Request $request, Response $response) {
     $userInputs = $request->getParsedBody(); //object received from user/frontend
     
     //if there are optional fields, that do not need validation
+    $middle_name;
     if(isset($request->getParsedBody()['middle_name']));
         $middle_name = $request->getParsedBody()['middle_name'];
         
@@ -31,12 +32,13 @@ $app->post('/register', function (Request $request, Response $response) {
     $requiredFields = ["first_name"=>25, "last_name"=>25, email=>60, "username"=>15, "password"=>20];
     
     $value = ValidateFields::validate($requiredFields, $userInputs);
-   if ($value["error"]) {
+   if ($value["error"]) { //if validation fails, return response
         return $response->withJson($value);
     } else {
-        //$username = $value["username"];
+        //if validation succeeds, 
         $value = array_merge($value, $middle_name); //merge the optional fields to the required fields
         
+        ... do other works with the valid fields
         $result = $db->registerUser($value);
         
         return $response->withJson($result);
