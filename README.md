@@ -28,7 +28,9 @@ Mostly used with API where request objects are received as array.
 
 ```
 ###### Method request descriptions
-```php ValidateFields::validate($requiredFields, $requestObject, $customMessage) ``` \
+```php 
+ValidateFields::validate($requiredFields, $requestObject, $customMessage) 
+``` \
 
 *parameter description*
 *$requiredFields* array - specified fields that you're expecting from the user/front end \
