@@ -13,7 +13,31 @@ composer dump -o
 
 #### Usage
 Mostly used with API where request objects are received as array.
+
 ```php
+
+
+    $userInputs = $request->getParsedBody(); //object received from user/frontend
+
+ //specify required fields, key=>maxLength. value is the maximum required length of every field/key
+ 
+    $requiredFields = ["first_name"=>25, "last_name"=>25, "email"=>60, "username"=>15, "password"=>20];
+    
+    $value = ValidateFields::validate($requiredFields, $userInputs); //method to validate fields
+
+
+```
+###### Method request descriptions
+` ValidateFields::validate($requiredFields, $requestObject, $customMessage) ` \
+
+*parameter description*
+*$requiredFields* array - specified fields that you're expecting from the user/front end \
+*$requestObj* array - array of fields of key/values from the user/front end \
+*$customMessage* optional parameter. array or custom messages to return when validation fails \ \
+
+Example usage
+```php
+
 require_once __FILE__ . '/vendor/autoload.php';
 
 use Jbn\Validate\ValidateFields;
