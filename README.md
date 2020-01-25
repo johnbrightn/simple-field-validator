@@ -30,12 +30,12 @@ Mostly used with API where request objects are received as array.
 ###### Method request descriptions
 ```php 
 ValidateFields::validate($requiredFields, $requestObject, $customMessage) 
-``` \
+```
 
 *parameter description*
-*$requiredFields* array - specified fields that you're expecting from the user/front end \
-*$requestObj* array - array of fields of key/values from the user/front end \
-*$customMessage* optional parameter. array or custom messages to return when validation fails \ \
+`$requiredFields` array - specified fields that you're expecting from the user/front end \
+`$requestObj` array - array of fields of key/values from the user/front end \
+`$customMessage` optional parameter. array or custom messages to return when validation fails \ \
 
 Example usage
 ```php
