@@ -50,8 +50,8 @@ $app->post('/register', function (Request $request, Response $response) {
     $userInputs = $request->getParsedBody(); //object received from user/frontend
     
     //if there are optional fields, that do not need validation
-    $middle_name;
-    if(isset($request->getParsedBody()['middle_name']));
+    $middle_name = null;
+    if(isset($request->getParsedBody()['middle_name']))
         $middle_name = $request->getParsedBody()['middle_name'];
         
     //specified required fields, key=>maxLength. value is the maximum required length of every field/key
