@@ -36,7 +36,6 @@ namespace Jbn\Validate;
                     if (!in_array($requiredFieldsKey, $requestObjectKeys)) { //if a default field set is not in the fields submitted by the user, throw an error
                         if($customMessage != null) //if custom message is not null, return custom message instead
                             return ValidateFields::customMessage($customMessage, $requiredFieldsKey, $requiredFieldsKeys);
-
                         return ["error" => true, "message" => " " . str_replace('_', " ", $requiredFieldsKey) . " is required"];
                     } elseif (in_array($requiredFieldsKey, $requestObjectKeys) && $requiredFieldsKey == $requestObjectKey) { 
                         
@@ -59,7 +58,7 @@ namespace Jbn\Validate;
                                     return ["error" => true, "message" => "Invalid email address"];
                                 }
                             }
-                           // $values = filter_var($values, FILTER_SANITIZE_SPECIAL_CHARS);
+                            $values = filter_var($values, FILTER_SANITIZE_SPECIAL_CHARS);
 
                             //create new array with values and their keys
                             $newarray = array_merge($newarray, ["error"=> false, $requiredFieldsKey => $values]);//create new array obj with specified fields and corresponding vaues
