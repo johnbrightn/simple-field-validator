@@ -49,11 +49,11 @@ $app->post('/register', function (Request $request, Response $response) {
 
     $userInputs = $request->getParsedBody(); //object received from user/frontend
     
-    //if there are optional fields, that do not need validation
-    $middle_name = null;
+    //if there are optional fields, that do not need validation, do not specify them in the required fields array
+   /* $middle_name = null;
     if(isset($request->getParsedBody()['middle_name']))
         $middle_name = $request->getParsedBody()['middle_name'];
-        
+   */
     //specified required fields, key=>maxLength. value is the maximum required length of every field/key
     $requiredFields = ["first_name"=>25, "last_name"=>25, "email"=>60, "username"=>15, "password"=>20];
     
@@ -61,8 +61,9 @@ $app->post('/register', function (Request $request, Response $response) {
    if ($value["error"]) { //if validation fails, return response
         return $response->withJson($value);
     } else {
-        //if validation succeeds, 
-        $value = array_merge($value, $middle_name); //merge the optional fields to the required fields
+        //if validation succeeds, u can either use the returned values or the user input values which may include optional fields
+        $value; // values retured from the array, which include required fields only
+        $userInput //values sent by the user which may include optional fields
         
         ... do other works with the valid fields
         $result = $db->registerUser($value);
