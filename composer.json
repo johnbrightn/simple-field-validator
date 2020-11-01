@@ -12,9 +12,7 @@
     ],
     "minimum-stability": "dev",
     "autoload": {
-        "psr-4": {
-            "Jbn\\Validate\\": "src/"
-        }
+        "classmap": ["src/Jbn/Validate"] 
     },
     "require": {
         "php": ">=5.3.0"
