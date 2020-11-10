@@ -57,11 +57,12 @@ namespace Jbn\Validate;
                                 if(!ValidateFields::filterEmail($values)){
                                     return ["error" => true, "message" => "Invalid email address"];
                                 }
+
                             }
                             $values = filter_var($values, FILTER_SANITIZE_SPECIAL_CHARS);
 
                             //create new array with values and their keys
-                            $newarray = array_merge($newarray, ["error"=> false, $requiredFieldsKey => $values]);//create new array obj with specified fields and corresponding vaues
+                            $newarray = array_merge($newarray, ["error"=> false, $requiredFieldsKey => trim($values)]);//create new array obj with specified fields and corresponding vaues
                         }
                     }
                 }
